@@ -1,0 +1,50 @@
+{
+    "manifest_version": 3,
+    "name": "Katman Yayıncı Takibi",
+    "version": "1.0",
+    "description": "Katman yayıncılarının online durumunu gösterir, bilgiler verir ve yayın başlangıçlarında bildirim gönderir.",
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icons/icon16.png",
+        "32": "icons/icon32.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+      },
+      "default_title": "Yeni yayın var!"
+    },
+    "permissions": [
+      "notifications",
+      "alarms",
+      "storage",
+      "background"
+    ],
+    "host_permissions": [
+      "https://kick.com/*",
+      "https://*.kick.com/*"
+    ],
+    "background": {
+      "service_worker": "background.js",
+      "type": "module"
+    },
+    "web_accessible_resources": [
+      {
+        "resources": ["icons/*"],
+        "matches": ["<all_urls>"],
+        "use_dynamic_url": true
+      }
+    ],
+    "icons": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "content_scripts": [
+      {
+        "matches": ["https://kick.com/*"],
+        "js": ["content.js"],
+        "run_at": "document_idle"
+      }
+    ]
+  }

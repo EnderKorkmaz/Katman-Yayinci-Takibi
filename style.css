@@ -1,0 +1,1013 @@
+:root {
+    --bg-color: #1a1a2e;
+    --text-color: #e6e6e6;
+    --card-color: #16213e;
+    --button-bg: #feda75;
+    --button-text: #1a1a2e;
+    --offline-color: #ff4d4d;
+    --online-color: #00b894;
+    --hover-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  body.light {
+    --bg-color: #f8f9fa;
+    --text-color: #333;
+    --card-color: #ffffff;
+    --button-bg: #4a6fa5;
+    --button-text: #fff;
+    --offline-color: #d63031;
+    --online-color: #00b894;
+    --hover-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  padding: 12px;
+  width: 340px;
+  transition: all 0.3s ease;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  height: 574px;
+  overflow: hidden;
+  }
+  
+  h2 {
+    margin: 0 0 12px 0;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    color: var(--text-color);
+  }
+  
+  .button-group {
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
+  }
+  
+  button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+  }
+  
+  button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  #toggle-theme {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    color: #ccc;
+    padding: 6px;
+    border-radius: 10px;
+    transition: background-color 0.2s ease;
+  }
+  
+  #toggle-theme:hover {
+  background-color: var(--hover-color);
+  transform: scale(1);
+  }
+  
+  .streamer-card {
+    background-color: var(--card-color);
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 10px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .streamer-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .streamer-header {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+  
+  .logo-container {
+    position: relative;
+    flex-shrink: 0;
+  }
+  
+  .logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .streamer-info {
+    flex-grow: 1;
+    min-width: 0;
+  }
+  
+  .user-status {
+    margin-top: -2px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 3px;
+  }
+  
+  .status-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 8px;
+    background-color: var(--online-color);
+    box-shadow: 0 0 8px var(--online-color);
+    animation: pulse 1.5s infinite;
+  }
+  
+  .status-indicator.offline {
+    background-color: var(--offline-color);
+    box-shadow: none;
+    animation: none;
+  }
+  
+  .streamer-info strong {
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+  }
+  
+  .stream-title, .stream-category {
+    font-size: 12px;
+    margin: 2px 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  body.light .stream-title,
+  body.light .stream-category {
+    color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .stream-meta {
+    display: flex;
+    gap: 8px;
+    margin-top: 4px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+  
+  body.light .stream-meta {
+    color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .stream-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  #last-updated {
+    margin: 8px 0 12px;
+    font-size: 12px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.5);
+  }
+  
+  body.light #last-updated {
+    color: rgba(0, 0, 0, 0.4);
+  }
+  
+  @keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+  }
+  
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+  body.light ::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2); /* gri ton */
+  }
+  
+  body.light ::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  }
+  
+  
+  .streamer-info {
+  flex-grow: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  }
+  
+  .stream-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-color);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 2px 0;
+  }
+  
+  .stream-category {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.8);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 2px 0;
+  }
+  
+  body.light .stream-category {
+  color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .stream-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  }
+  
+  body.light .stream-meta {
+  color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .stream-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  }
+  
+  .stream-meta-item svg {
+  width: 14px;
+  height: 14px;
+  }
+  .user-status strong {
+  font-size: 15px; /* Nickname boyutu büyütüldü */
+  font-weight: 700;
+  }
+  
+  .stream-meta {
+  display: flex;
+  justify-content: space-between; /* İzleyici ve süreyi ayırdık */
+  width: 100%;
+  margin-top: 6px;
+  }
+  
+  .stream-viewers {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  }
+  
+  .stream-duration {
+  margin-left: auto; /* Süreyi sağa yasladık */
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  }
+  #toggle-offline {
+  background: transparent;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  color: #ccc;
+  }
+  
+  .hide-offline .streamer-card:not(.online) {
+  display: none;
+  }
+  
+  .streamer-card.online {
+  /* Online kartlar için özel stil (isteğe bağlı) */
+  border-left: 3px solid var(--online-color);
+  }
+  
+  #toggle-offline:hover {
+  background-color: var(--hover-color);
+  transform: scale(1);
+  }
+  
+  #toggle-offline svg {
+  transition: all 0.3s ease;
+  }
+  
+  #toggle-offline.active svg {
+  color: #ccc;
+  filter: drop-shadow(0 0 4px var(--online-color));
+  }
+  
+  #toggle-offline.offline svg {
+  opacity: 1;
+  }
+  
+  /* Varsayılan: Çevrimdışılar gizli */
+  #streamers-list:not(.show-offline) .streamer-card.offline {
+  display: none;
+  }
+  
+  /* Buton stilleri */
+  #toggle-offline {
+  background: transparent;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  opacity: 1;
+  transition: all 0.2s ease;
+  }
+  
+  #toggle-offline:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  }
+  
+  #toggle-offline.active {
+  opacity: 1;
+  color: var(--online-color);
+  }
+  
+  #toggle-offline .eye-strike {
+  display: none;
+  }
+  
+  #toggle-offline.active .eye-strike {
+  display: block;
+  }
+  
+  .header-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0 12px 0;
+  padding: 0 4px;
+  }
+  
+  #last-updated {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 2px; /* Yukarı kaydırma */
+  }
+  
+  body.light #last-updated {
+  color: rgba(0, 0, 0, 0.6);
+  }
+  
+  .credit {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.2);
+  font-style: italic;
+  }
+  
+  body.light .credit {
+  color: rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Genel Düzen */
+  .header-container {
+  padding: 10px 12px 4px;
+  border-bottom: 0px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  body.light .header-container {
+  border-bottom-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Başlık */
+  h2 {
+  margin: 0 0 10px 0;
+  text-align: center;
+  font-size: 18px;
+  color: var(--text-color);
+  }
+  
+  /* Durum Çubuğu */
+  .status-bar {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 11px;
+  margin-bottom: -10px;
+  }
+  
+  #last-updated {
+  color: rgba(255, 255, 255, 0.7);
+  }
+  
+  .credit {
+  color: rgba(255, 255, 255, 0.2);
+  font-style: italic;
+  }
+  
+  /* Işık Tema Uyumu */
+  body.light #last-updated,
+  body.light .credit {
+  color: rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Kartlar */
+  .streamer-card {
+  margin: 8px 12px;
+  padding: 12px;
+  border-radius: 8px;
+  background: var(--card-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Sadece online kartlar için küçük stil */
+  .streamer-card.online {
+  min-height: 85px; /* Çevrimdışı kartlardan 15px kısa */
+  max-height: 85px;
+  padding: 8px 10px; /* İç boşluk azaltıldı */
+  }
+  
+  /* Online kart içeriği için ayarlar */
+  .streamer-card.online .streamer-info {
+  gap: 2px; /* Elemanlar arası boşluk */
+  padding: 4px 0; /* Dikey boşluk */
+  }
+  
+  .streamer-card.online .stream-title {
+  font-size: 12px; /* Başlık boyutu */
+  line-height: 1; /* Satır aralığı */
+  margin-bottom: 2px;
+  }
+  
+  .streamer-card.online .stream-category {
+  font-size: 12px; /* Kategori boyutu */
+  opacity: 0.9; /* Hafif şeffaflık */
+  }
+  
+  .streamer-card.online .stream-meta {
+  margin-top: 2px; /* Üst boşluk */
+  font-size: 11px; /* Meta bilgi boyutu */
+  }
+  .stream-viewers, 
+  .stream-duration {
+  position: relative;
+  top: -2px; /* 2px yukarı çek */
+  margin-right: 8px; /* Sağ boşluk */
+  }
+  .stream-meta {
+  transition: margin 0.2s ease;
+  }
+  /* Kart üstü bildirim butonu */
+  .notification-toggle {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0, 0, 0, 0.7);
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  }
+  
+  .streamer-card:hover .notification-toggle {
+  display: flex;
+  }
+  
+  .notification-toggle.on {
+  background: var(--online-color);
+  }
+  
+  .notification-toggle.off {
+  background: var(--offline-color);
+  }
+  
+  .notification-toggle svg {
+  width: 14px;
+  height: 14px;
+  fill: white;
+  }
+  
+  .streamer-card:hover .notification-btn {
+  background: rgba(0,0,0,0.8);
+  }
+  
+  /* Toast bildirim */
+  .toast-notification {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.8);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 4px;
+  z-index: 1000;
+  animation: slideIn 0.5s ease-out;
+  }
+  
+  .fade-out {
+  animation: fadeOut 0.5s ease-out forwards;
+  }
+  
+  @keyframes slideIn {
+  from { bottom: -50px; opacity: 0; }
+  to { bottom: 20px; opacity: 1; }
+  }
+  
+  @keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+  }
+  #streamers-list {
+  max-height: 580px;
+  overflow-y: auto;
+  padding-right: 4px;
+  }
+  
+  /* Kart container'ı için sabit genişlik */
+  #streamers-list {
+  width: 340px; /* Sabit genişlik */
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 8px !important; /* Scrollbar için sabit boşluk */
+  box-sizing: content-box;
+  scrollbar-gutter: stable;
+  
+  }
+  
+  /* Offline kartları gizlerken scrollbar'ın kaybolmaması */
+  #streamers-list.show-offline {
+  overflow-y: auto !important;
+  }
+  
+  /* Kartlar için sabit genişlik */
+  .streamer-card {
+  width: 305px;
+  margin-left: 6px;
+  margin-right: 6px;
+  }
+  
+  .notification-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: rgba(0,0,0,0.7);
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  z-index: 10;
+  font-size: 12px;
+  display: none; /* Varsayılan olarak gizli */
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  }
+  .notification-btn:active {
+  transform: scale(0.9); /* Tıklama hissi */
+  }
+  
+  .streamer-card:hover .notification-btn {
+  display: flex; /* Sadece hover'da göster */
+  }
+  
+  .notification-btn.on {
+  background: var(--online-color);
+  }
+  
+  .notification-btn.off {
+  background: var(--offline-color);
+  }
+  
+  .header-container h2 {
+  font-weight: 800; /* Daha kalın (700-900 arası) */
+  font-family: 'Segoe UI', 'Roboto', sans-serif; /* Font ailesi */
+  font-size: 28px; /* Boyut büyütme */
+  letter-spacing: 0.5px; /* Harf aralığı */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Hafif gölge */
+  margin-bottom: 15px; /* Alt boşluk */
+  margin-top: 0px;
+  }
+  .header-container h2 {
+  background: linear-gradient(45deg, #feda75, #ff5e62);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: #feda75;
+  }
+  .streamer-card.offline .logo {
+    border-color: var(--offline-color);
+    filter: grayscale(70%);
+    opacity: 0.8;
+  }
+  body.light .header-container h2 {
+  background: none;
+  color: #4a6fa5; /* Açık temada mavi-mor ton */
+  text-shadow: none;
+  }
+  @keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  }
+  
+  .empty-message {
+  animation: fadeIn 0.5s ease-out;
+  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 34px;
+  opacity: 0.8;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-color);
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  }
+  @keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  }
+  
+  .streamer-card {
+  animation: slideUpFade 0.3s ease;
+  }
+  
+  .last-seen {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 4px;
+  }
+  
+  body.light .last-seen {
+  color: rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Genel link stili */
+  .credit a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  cursor: pointer;
+  }
+  
+  /* Koyu tema hover */
+  body:not(.light) .credit a:hover {
+  color: #fedd05c2; /* sarımsı */
+  opacity: 0.8;
+  text-decoration: underline;
+  }
+  
+  /* Açık tema hover */
+  body.light .credit a:hover {
+  color: #4a6fa5; /* Açık temada mavi-mor ton */
+  text-decoration: underline;
+  }
+  
+  #extension-settings {
+  max-height: none;
+  overflow-y: visible;
+  margin-top: 10px;
+  padding: 10px;
+  border-top: 1px solid #666;
+  background-color: rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+  }
+  
+  
+  .button-group button {
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ccc;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  }
+  
+  .button-group button:hover {
+  background-color: var(--hover-color);
+  transform: scale(1);
+  }
+  
+  .button-group svg {
+  width: 22px;
+  height: 22px;
+  stroke: #ccc;    /* ikon çizgisi: açık gri */
+  fill: none;        /* içi boş */
+  }
+  h2 {
+  margin-top: 4px;
+  margin-bottom: 6px;
+  font-size: 18px;
+  }
+  
+  .settings-button {
+  font-size: 16px;  /* ikon boyutu */
+  }
+  #toggle-settings svg {
+  width: 22x;
+  height: 22px;
+  opacity: 0.9;
+  }
+  
+  .button-group {
+  display: flex;
+  gap: 22px; /* Butonlar arası boşluk */
+  }
+  
+  .button-group button {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  }
+  
+  .button-group button:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Hover arka planı */
+  }
+  
+  /* SVG ikonlar için ortak stil */
+  .button-group button svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor !important;
+  fill: none !important;
+  }
+  
+  /* Koyu tema - ikonlar açık renk */
+  body:not(.light) .button-group button svg {
+    color: #ccc;
+  }
+  
+  /* Açık tema - ikonlar koyu renk */
+  body.light .button-group button svg {
+    color: #222;
+  }
+  
+  /* Emoji içeren butonlar için font boyutu ayarı */
+  .button-group button#toggle-theme svg {
+    width: 20px;
+    height: 20px;
+    stroke: currentColor;
+  }
+  
+  #toggle-theme .icon-light {
+    display: none;
+  }
+  body.light #toggle-theme .icon-light {
+    display: inline;
+  }
+  body.light #toggle-theme .icon-dark {
+    display: none;
+  }
+
+
+  /* Her kartın üzerine gelince çıkan Gizle Butonu */
+.hide-streamer-btn {
+  position: absolute;
+  top: 4px;
+  left: 4px; /* Bildirim butonu sağda, bu solda olsun */
+  background: rgba(255, 69, 58, 0.8); /* Kırmızımsı bir ton */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 11; /* Bildirim butonundan üstte olabilir */
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  display: none; /* Varsayılan olarak gizli */
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  padding: 0;
+}
+
+.streamer-card:hover .hide-streamer-btn {
+  display: flex; /* Sadece kartın üzerine gelince göster */
+}
+
+.hide-streamer-btn:hover {
+  background: rgb(255, 50, 40);
+  transform: scale(1.1);
+}
+
+
+.hidden-header h3 {
+  margin: 0;
+  font-size: 16px;
+  margin-left: -2px;
+}
+
+#back-to-main-list {
+  background: none;
+  border: 1px solid var(--text-color);
+  color: var(--text-color);
+  opacity: 0.7;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 4px;
+  margin-right: -7px;
+}
+#back-to-main-list:hover {
+  opacity: 1;
+}
+
+
+
+.restore-streamer-btn {
+  background: var(--online-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.restore-streamer-btn:hover {
+  transform: scale(1.1);
+}
+
+
+
+
+/* style.css DOSYASINDAKİ İLGİLİ KURALLARI BUNLARLA DEĞİŞTİRİN VEYA EN SONA EKLEYİN */
+
+/* 1. Ana gizli görünüm kapsayıcısının iç boşluğunu kaldırıyoruz. 
+   Hizalamayı artık bu yapmayacak. */
+#hidden-streamers-view {
+  padding: 10px 0 0 0; /* Sadece üstte biraz boşluk kalsın, yan ve alt boşluklar sıfır */
+  height: auto; /* Yüksekliği otomatik olsun */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 2. Gizli başlığa (başlık ve geri dön butonu) streamer kartları gibi yanlardan margin veriyoruz. */
+.hidden-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 0; /* Kendi iç padding'ini sıfırla */
+  margin-left: 12px; /* Sol boşluk */
+  margin-right: 12px; /* Sağ boşluk */
+}
+
+/* 3. Her bir gizlenmiş yayıncı öğesine de streamer kartları gibi yanlardan margin veriyoruz. */
+.hidden-streamer-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background-color: var(--card-color);
+  border-radius: 8px; /* Kenar yuvarlaklığını ana kartlarla eşitle */
+  margin-bottom: 8px;
+  font-size: 14px;
+  /* Yeni eklenen marginler */
+  margin-left: 12px;
+  margin-right: 12px;
+}
+
+/* 4. Kaydırma çubuğu için ana listedeki gibi sağa boşluk ekliyoruz. */
+#hidden-streamers-list {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 4px; /* Kaydırma çubuğu için boşluk */
+  scrollbar-gutter: stable; /* Kaydırma çubuğu çıktığında içeriğin kaymasını engeller */
+}
+
+
+
+
+/* style.css İÇİNDEKİ İLGİLİ KURALLARI BUNLARLA DEĞİŞTİRİN */
+
+/* Her bir gizlenmiş yayıncı öğesi için daha dengeli bir görünüm */
+.hidden-streamer-item {
+  display: flex;
+  align-items: center; /* Dikey olarak ortala */
+  justify-content: space-between; /* Öğeleri iki uca yasla */
+  
+  /* Dolguyu artırarak daha fazla iç boşluk sağlıyoruz */
+  padding: 10px 16px; 
+  
+  background-color: var(--card-color);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  margin-left: 6px;
+  margin-right: -4px;
+
+  /* Hoş bir geçiş efekti ekliyoruz */
+  transition: background-color 0.2s ease;
+}
+
+/* Üzerine gelince hafif bir renk değişimi */
+.hidden-streamer-item:hover {
+  background-color: var(--hover-color);
+}
+
+/* Kullanıcı adını biraz daha belirgin yapalım */
+.hidden-streamer-item span {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* Geri yükleme butonu için mükemmel ortalama ve stil */
+.restore-streamer-btn {
+  background: var(--online-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 26px;  /* Boyutu biraz büyüttük */
+  height: 26px;
+  cursor: pointer;
+  
+  /* Flexbox ile içindeki '+' işaretini kusursuz ortalıyoruz */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Artı işaretinin stilini ayarlıyoruz */
+  font-size: 16px; 
+  font-weight: bold;
+  padding-bottom: 6px; /* Fontun yapısından kaynaklanan kaymayı düzeltmek için ince ayar */
+  
+  /* Geçiş efektleri */
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.restore-streamer-btn:hover {
+  transform: scale(1.1); /* Büyüme efekti */
+  filter: brightness(1.1); /* Rengini hafifçe parlat */
+}
